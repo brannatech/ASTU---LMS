@@ -1,16 +1,20 @@
-import { School } from "@mui/icons-material";
+import { Book, Quiz, School } from "@mui/icons-material";
 import { Box, Button, Icon, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import React from "react";
 import LogoBox from "../components/LogoBox";
 
 const AboutPage = () => {
-  const items = ["", "", ""];
+  const items = [
+    [<School />, "Over 10,000 lectures"],
+    [<Book />, "Over 100,000 books"],
+    [<Quiz />, "Over 20,000 Quizes"],
+  ];
   return (
     <Box component="div">
-      <Box className="bgimg-1">
+      <Box className="box1">
         <Box className="caption">
-          <span className="border">ABOUT US</span>
+          <span className="border .about-title">ABOUT US</span>
         </Box>
       </Box>
 
@@ -19,7 +23,7 @@ const AboutPage = () => {
           color: "#777",
           backgroundColor: "white",
           textAlign: "center",
-          padding: "50px 80px",
+          padding: "32px 16px",
         }}
       >
         <Box
@@ -79,30 +83,36 @@ const AboutPage = () => {
         </Box>
       </Box>
 
-      <Box className="bgimg-2">
+      <Box className="box2">
         <Box className="caption">
-          <Box p={2} gap={2} justifyContent={"center"} display={{lg:"flex"}}>
+          <Box
+            gap={2}
+            justifyContent={"center"}
+            display={{ md: "block", lg: "flex" }}
+          >
             {items.map((item) => (
               <Box
-                bgcolor={alpha("#000", 0.2)}
+                mb={1}
+                py={2}
+                bgcolor={alpha("#000", 0.8)}
                 display={"flex"}
+                color={"white"}
                 flexDirection={"column"}
                 justifyContent={"center"}
                 alignItems={"center"}
               >
-                <Icon>
-                  <School />
-                </Icon>
-                <span
-                  className="border"
-                  style={{
+                <Icon color="info">{item[0]}</Icon>
+                <Typography
+                  sx={{
                     backgroundColor: "transparent",
-                    fontSize: "25px",
+                    fontSize: {sm:"16px",lg:"32px"},
+                    fontWeight:"700",
                     color: "#f7f7f7",
+                    letterSpacing: { sm: "3px", md: "5px" },
                   }}
                 >
-                  Over 10,000 Lectures
-                </span>
+                  {item[1]}
+                </Typography>
               </Box>
             ))}
           </Box>
@@ -115,50 +125,27 @@ const AboutPage = () => {
             color: "#ddd",
             backgroundColor: "#282E34",
             textAlign: "center",
-            padding: "50px 80px",
+            padding: "48px 16px",
           }}
         >
-          <p>
-            Scroll up and down to really get the feeling of how Parallax
-            Scrolling works.
-          </p>
+          <h1>&ldquo;Investment in knowledge pays the best interest.&rdquo;</h1>
         </Box>
       </Box>
 
-      <Box className="bgimg-3">
+      <Box className="box3">
         <Box className="caption">
-          <span
-            className="border"
-            style={{
-              backgroundColor: "transparent",
-              fontSize: "25px",
-              color: "#f7f7f7",
-            }}
+          <Typography
+            color={"#f2f2ff"}
+            variant="h3"
+            component="h1"
+            fontSize={"4vw"}
+            letterSpacing={5}
+            fontWeight={"800"}
+            textTransform={"uppercase"}
+            fontFamily="Nova Flat"
           >
-            SCROLL UP
-          </span>
-        </Box>
-      </Box>
-
-      <Box style={{ position: "relative" }}>
-        <Box
-          style={{
-            color: "#ddd",
-            backgroundColor: "#282E34",
-            textAlign: "center",
-            padding: "50px 80px",
-          }}
-        >
-          <p>
-            Scroll up and down to really get the feeling of how Parallax
-            Scrolling works.
-          </p>
-        </Box>
-      </Box>
-
-      <Box className="bgimg-1">
-        <Box className="caption">
-          <span className="border">COOL!</span>
+            Reach out to us
+          </Typography>
         </Box>
       </Box>
     </Box>

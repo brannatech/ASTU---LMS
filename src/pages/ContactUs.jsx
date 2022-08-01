@@ -6,14 +6,13 @@ import {
   CardContent,
   Stack,
   TextField,
-  Typography,
 } from "@mui/material";
 import React from "react";
 import LogoBox from "../components/LogoBox";
 const ContactUs = ({ theme }) => {
   return (
     <Box
-      py={10}
+      pb={10}
       className="contact-page"
       display={"flex"}
       flexDirection="column"
@@ -24,11 +23,6 @@ const ContactUs = ({ theme }) => {
         marginBottom: "0 !important",
       }}
     >
-      <Box textAlign={"center"} p={2} width={"100%"} bgcolor="#00695c" >
-        <Typography color={"#f2f2ff"} variant="h3" component="h1" fontSize={"4vw"} fontWeight={"900"} textTransform={"uppercase"} fontFamily="Nova Flat">
-          Reach out to us
-        </Typography>
-      </Box>
       <Box p={5} display="flex" alignItems={"center"} flexDirection={"row"}>
         <LogoBox>
           <Box>

@@ -21,7 +21,9 @@ body {
     font-weight: 600;
     outline: #02e2ff solid 1px; }
 
-.bgimg-1, .bgimg-2, .bgimg-3 {
+.box1,
+.box2,
+.box3 {
   position: relative;
   opacity: 0.65;
   background-attachment: fixed;
@@ -29,17 +31,17 @@ body {
   background-repeat: no-repeat;
   background-size: cover; }
 
-.bgimg-1 {
-  background-image: url("/public/img_parallax.jpg");
+.box1 {
+  background-image: url("/public/images/eelearning.png");
   min-height: 100%; }
 
-.bgimg-2 {
-  background-image: url("/public/img_parallax2.jpg");
-  min-height: 400px; }
+.box2 {
+  background-image: url("/public/images/astu3.jpg");
+  min-height: 560px; }
 
-.bgimg-3 {
-  background-image: url("/public/img_parallax3.jpg");
-  min-height: 400px; }
+.box3 {
+  background-image: linear-gradient(rgba(18, 54, 113, 0.9), rgba(17, 99, 93, 0.7)), url("/public/images/eelearning.png");
+  min-height: 300px; }
 
 .caption {
   position: absolute;
@@ -47,19 +49,13 @@ body {
   top: 50%;
   width: 100%;
   text-align: center;
-  color: #000; }
+  color: #000;
+  letter-spacing: 10px; }
 
 .caption span.border {
   background-color: #111;
   color: #fff;
   padding: 18px;
-  font-size: 25px;
-  letter-spacing: 10px; }
-
-h3 {
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
-  color: #111; }
+  font-size: 25px; }
 
 /* Turn off parallax scrolling for tablets and phones */
