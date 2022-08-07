@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from '@mui/material';
 import theme from "./theme";
 import LoginPage from "./pages/LoginPage";
-import TestAppbar from "./components/TestAppbar"
+import Courses from "./pages/Courses";
 function App() {
   const [mode, setMode] = useState("dark");
   return (
@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home setMode={setMode} mode={mode} />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/test" element={<TestAppbar/>}/>
+          <Route path="/courses" element={<Courses/>}/>
         </Routes>
       </Router>
     </ThemeProvider>

@@ -91,7 +91,7 @@ const AboutPage = () => {
             display={{ md: "block", lg: "flex" }}
           >
             {items.map((item) => (
-              <Box
+              <Box key={item}
                 mb={1}
                 py={2}
                 bgcolor={alpha("#000", 0.8)}

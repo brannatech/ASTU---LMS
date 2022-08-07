@@ -22,18 +22,12 @@ import {
   Slide,
   useScrollTrigger,
 } from "@mui/material";
-import {
-  Book,
-  Home,
-  Info,
-  PermContactCalendar,
-  School,
-} from "@mui/icons-material";
+import { Book, Info, PermContactCalendar, School } from "@mui/icons-material";
 import AccountMenu from "./AccountMenu";
+import SchoolList from "./SchoolList";
 
 const drawerWidth = 240;
 const navItems = [
-  ["Home", <Home />],
   ["Schools", <School />],
   ["Courses", <Book />],
   ["About", <Info />],
@@ -72,7 +66,7 @@ function DrawerAppBar(props) {
     },
     marginLeft: 0,
     width: "100%",
-    color: alpha(theme.palette.text.secondary,0.5),
+    color: alpha(theme.palette.text.secondary, 0.5),
     borderWidth: "1px",
     borderStyle: "solid",
     borderColor: alpha("#269f9f", 0.5),
@@ -106,7 +100,7 @@ function DrawerAppBar(props) {
           width: "30ch",
         },
       },
-      [theme.breakpoints.between("md","lg")]: {
+      [theme.breakpoints.between("md", "lg")]: {
         width: "12ch",
         "&:focus": {
           width: "16ch",
@@ -169,12 +163,20 @@ function DrawerAppBar(props) {
               sx={{ flexGrow: 0.5, display: { xs: "none", sm: "block" } }}
             />
             <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
-              {navItems.map((item) => (
-                <Button className="navbar-btn" key={item}>
-                  {item[0]}
-                </Button>
-              ))}
+              <SchoolList />
             </Box>
+
+            <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+              {navItems.map(
+                (item) =>
+                  item[0] !== "Schools" && (
+                    <Button className="navbar-btn" key={item}>
+                      {item[0]}
+                    </Button>
+                  )
+              )}
+            </Box>
+
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />

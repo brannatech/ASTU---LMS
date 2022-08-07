@@ -23,10 +23,10 @@ const Post = ({ course }) => {
   return (
     <Card
       sx={{
-        marginTop: 3,
+        marginBottom: 2,
         borderRadius: "16px",
         transition:"all .4s",
-        maxWidth:320,
+        maxWidth:330,
         "&:hover": {
           outline:"#47ffe0 solid 1px",
           transform: "translateY(-8px)",

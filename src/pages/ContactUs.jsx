@@ -63,8 +63,6 @@ const ContactUs = ({ theme }) => {
                 label="message"
                 type={"text"}
                 placeholder="your message ..."
-                autoCapitalize
-                autoCorrect
               />
             </Stack>
           </CardContent>
