@@ -14,7 +14,6 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import InputBase from "@mui/material/InputBase";
-import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   CssBaseline,
@@ -25,6 +24,7 @@ import {
 import { Book, Info, PermContactCalendar, School } from "@mui/icons-material";
 import AccountMenu from "./AccountMenu";
 import SchoolList from "./SchoolList";
+import NavLink from "./widgets/NavLink";
 
 const drawerWidth = 240;
 const navItems = [
@@ -170,9 +170,9 @@ function DrawerAppBar(props) {
               {navItems.map(
                 (item) =>
                   item[0] !== "Schools" && (
-                    <Button className="navbar-btn" key={item}>
+                    <NavLink key={item} to={"/courses"}>
                       {item[0]}
-                    </Button>
+                    </NavLink>
                   )
               )}
             </Box>

@@ -2,7 +2,14 @@ import * as React from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import styled from "@emotion/styled";
+
+const SchoolLink = styled(Link)(({ theme }) => ({
+  textDecoration: "none",
+  color: theme.palette.text.primary,
+}));
 
 export default function SchoolList() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -54,14 +61,45 @@ export default function SchoolList() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>School of Freshman division</MenuItem>
+        <MenuItem>
+          <SchoolLink to={"/school"}>
+            <Typography>
+              School of Freshman division
+            </Typography>
+          </SchoolLink>
+        </MenuItem>
         <Divider />
-        <MenuItem>School Applied Scence</MenuItem>
+        <MenuItem>
+          {" "}
+          <SchoolLink to={"/school"}>
+            <Typography>
+              School Applied Scence
+            </Typography>
+          </SchoolLink>
+        </MenuItem>
         <Divider />
-        <MenuItem>School Computting and Electrical Engineering</MenuItem>
+        <MenuItem>
+          <SchoolLink to={"/school"}>
+            <Typography >
+              School Computting and Electrical Engineering
+            </Typography>
+          </SchoolLink>
+        </MenuItem>
         <Divider />
-        <MenuItem>School Mechanical Engineering</MenuItem>
-        <MenuItem>School Civil and Architectural Engineering</MenuItem>
+        <MenuItem>
+          <SchoolLink to={"/school"}>
+            <Typography>
+              School Mechanical Engineering
+            </Typography>
+          </SchoolLink>
+        </MenuItem>
+        <MenuItem>
+          <SchoolLink to={"/school"}>
+            <Typography>
+              School of Civil and Architectural Engineering
+            </Typography>
+          </SchoolLink>
+        </MenuItem>
       </Menu>
     </>
   );

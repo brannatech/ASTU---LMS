@@ -5,6 +5,7 @@ import { ThemeProvider } from '@mui/material';
 import theme from "./theme";
 import LoginPage from "./pages/LoginPage";
 import Courses from "./pages/Courses";
+import School from "./pages/School";
 function App() {
   const [mode, setMode] = useState("dark");
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home setMode={setMode} mode={mode} />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/courses" element={<Courses/>}/>
+          <Route path="/school" element={<School/>}/>
         </Routes>
       </Router>
     </ThemeProvider>

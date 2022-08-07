@@ -58,8 +58,8 @@ const Courses = ({ mode, setMode }) => {
       </Button> */}
           </Box>
         </Grid>
-        <Grid item lg={3} display={{ xs: "none", lg: "block" }}>
-          <Box position={"static"} minWidth={100} height={500}>
+        <Grid item lg={3} bgcolor={"#cfe8fc"} display={{xs: "none", lg: "block" }}>
+          <Box position={"static"} minWidth={100} height={"100%"}>
             Filters goes here
           </Box>
         </Grid>
