@@ -151,13 +151,15 @@ function DrawerAppBar(props) {
               component="div"
               sx={{ flexGrow: 0.3, display: { xs: "none", sm: "block" } }}
             />
-            <Avatar
-              sx={{
-                transform: "scale(1.25)",
-                display: { xs: "none", sm: "none", md: "block" },
-              }}
-              src="/images/logo2.png"
-            />
+            <NavLink to={"/"}>
+              <Avatar
+                sx={{
+                  transform: "scale(1.25)",
+                  display: { xs: "none", sm: "none", md: "block" },
+                }}
+                src="/images/logo2.png"
+              />
+            </NavLink>
             <Box
               component="div"
               sx={{ flexGrow: 0.5, display: { xs: "none", sm: "block" } }}
@@ -167,13 +169,22 @@ function DrawerAppBar(props) {
             </Box>
 
             <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
-              {navItems.map(
-                (item) =>
-                  item[0] !== "Schools" && (
-                    <NavLink key={item} to={"/courses"}>
+              {navItems.map((item) =>
+                item[0] === "Schools" ? null : item[0] === "Courses" ? (
+                  <NavLink key={item} to={"/courses"}>
+                    {item[0]}
+                  </NavLink>
+                ) : item[0] === "About" ? (
+                  <NavLink key={item} to={"/about"}>
+                    {item[0]}
+                  </NavLink>
+                ) : (
+                  item[0] === "Contact" && (
+                    <NavLink key={item} to={"/contact"}>
                       {item[0]}
                     </NavLink>
                   )
+                )
               )}
             </Box>
 

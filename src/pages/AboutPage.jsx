@@ -11,7 +11,7 @@ const AboutPage = () => {
     [<Quiz />, "Over 20,000 Quizes"],
   ];
   return (
-    <Box component="div">
+    <Box mt={5} component="div">
       <Box className="box1">
         <Box className="caption">
           <span className="border .about-title">ABOUT US</span>
@@ -21,7 +21,7 @@ const AboutPage = () => {
       <Box
         style={{
           color: "#777",
-          backgroundColor: "white",
+          backgroundColor: "rgba(255,255,255,0.75)",
           textAlign: "center",
           padding: "32px 16px",
         }}
@@ -71,11 +71,12 @@ const AboutPage = () => {
                   sx={{
                     textDecoration: "underline",
                     overflow: "hidden",
+                    textTransform:"lowercase",
                     transition: "all .4s",
-                    "&:hover": { background: "none", transform: "Scale(1.25)" },
+                    "&:hover": { backgroundColor: "rgba(48,200,200,0.2)", transform: "Scale(1.25)" },
                   }}
                 >
-                  More
+                  learn more
                 </Button>
               </Typography>
             </Box>
@@ -134,18 +135,7 @@ const AboutPage = () => {
 
       <Box className="box3">
         <Box className="caption">
-          <Typography
-            color={"#f2f2ff"}
-            variant="h3"
-            component="h1"
-            fontSize={"4vw"}
-            letterSpacing={5}
-            fontWeight={"800"}
-            textTransform={"uppercase"}
-            fontFamily="Nova Flat"
-          >
-            Reach out to us
-          </Typography>
+          
         </Box>
       </Box>
     </Box>

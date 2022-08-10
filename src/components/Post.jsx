@@ -25,11 +25,13 @@ const Post = ({ course }) => {
       sx={{
         marginBottom: 2,
         borderRadius: "16px",
-        transition:"all .4s",
-        maxWidth:330,
+        transition: "all .4s",
+        opacity: 0.8,
+        maxWidth: 330,
         "&:hover": {
-          outline:"#47ffe0 solid 1px",
-          transform: "translateY(-8px)",
+          opacity: 1,
+          outline: "#47ffe0 solid 1px",
+          transform: "translateY(-16px)",
           boxShadow: "0 3px 5px 0 rgba(0,0,0,0.5)",
         },
       }}
@@ -40,7 +42,7 @@ const Post = ({ course }) => {
         image={course.logo}
         alt={course.title}
       />
-      <CardHeader 
+      <CardHeader
         avatar={
           <Icon>
             <Title />

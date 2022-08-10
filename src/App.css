@@ -44,7 +44,7 @@ body {
 
 .box3 {
   background-image: linear-gradient(rgba(18, 54, 113, 0.9), rgba(0, 0, 0, 0.7)), url("/public/images/eelearning.png");
-  min-height: 400px; }
+  min-height: 250px; }
 
 .caption {
   position: absolute;

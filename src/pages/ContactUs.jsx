@@ -5,7 +5,9 @@ import {
   CardActions,
   CardContent,
   Stack,
+  TextareaAutosize,
   TextField,
+  Typography,
 } from "@mui/material";
 import React from "react";
 import LogoBox from "../components/LogoBox";
@@ -23,6 +25,20 @@ const ContactUs = ({ theme }) => {
         marginBottom: "0 !important",
       }}
     >
+      <Typography
+        color={"#ffffff"}
+        bgcolor={"#333"}
+        variant="h3"
+        component="h1"
+        p={5}
+        fontSize={"2vw"}
+        letterSpacing={5}
+        fontWeight={"800"}
+        textTransform={"uppercase"}
+        fontFamily="Nova Flat"
+      >
+        Reach out to us
+      </Typography>
       <Box p={5} display="flex" alignItems={"center"} flexDirection={"row"}>
         <LogoBox>
           <Box>
@@ -44,7 +60,7 @@ const ContactUs = ({ theme }) => {
             borderRadius: 8,
             padding: { xs: 0, sm: 2 },
             mx: { xs: 0, sm: 1, md: 2 },
-            minWidth: { xs: 300, sm: 500, md: 500, lg: 600, xl: 800 },
+            minWidth: { xs: 300, sm: 500, md: 500, lg: 600 },
           }}
         >
           <CardContent>
@@ -56,10 +72,11 @@ const ContactUs = ({ theme }) => {
                 placeholder="your email"
                 autoComplete="false"
               />
-              <TextField
+              <TextareaAutosize
+                minRows={3}
+                maxRows = {6}
+                maxLength = {500}
                 fullWidth
-                multiline
-                rows={4}
                 label="message"
                 type={"text"}
                 placeholder="your message ..."
