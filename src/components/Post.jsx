@@ -11,13 +11,8 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import RatingBar from "./RatingBar";
-
-// const ResponsiveCardMedia = styled("div")(({ theme }) => ({
-//   [theme.breakpoints.down("xs")]: {
-//     width:100,
-//   },
-// }));
 
 const Post = ({ course }) => {
   return (
@@ -68,18 +63,20 @@ const Post = ({ course }) => {
         <IconButton aria-label="share">
           <Share />
         </IconButton>
-        <Button
+        <Link
+        to={`/courses/${course.id}`}
           sx={{
             border: ".5px solid #006ea1",
             "&:hover": { backgroundColor: "#006ea1", color: "#fff" },
             borderRadius: 8,
             width: 100,
+            textDecoration:"none",
           }}
           variant="outlined"
           size="small"
         >
           View
-        </Button>
+        </Link>
       </CardActions>
     </Card>
   );
