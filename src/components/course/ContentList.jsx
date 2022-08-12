@@ -149,7 +149,7 @@ const data = [
 const Span = styled("span")(({ them }) => ({
   padding: "0 1rem",
   color: "blueViolet",
-  fontSize:"12px",
+  fontSize:"14px",
 }));
 export default function ContentList() {
   const sections = data.length +8;
@@ -162,7 +162,7 @@ export default function ContentList() {
   }
   return (
     <List component="nav" disablePadding>
-      <Box p={1} bgcolor={"rgba(0,0,0,0.05)"}>
+      <Box display="flex" flexWrap={"wrap"} p={1} bgcolor={"rgba(0,0,0,0.05)"}>
         <Span>📁 {sections} Sections</Span>
         <Span>🎬 {totalLectures()} Lectures</Span>
         <Span>📚 3 eBooks</Span>

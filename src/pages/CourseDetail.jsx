@@ -11,23 +11,28 @@ import {
   Avatar,
   AvatarGroup,
   Button,
+  Grid,
   Icon,
+  List,
   ListItem,
+  ListItemAvatar,
   ListItemIcon,
   ListItemText,
+  Paper,
   Typography,
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
 import ContentList from "../components/course/ContentList";
 import RatingBar from "../components/RatingBar";
+import courses from "../courses";
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   maxWidth: "720px",
-  paddingLeft:"2rem",
+  paddingLeft: "2rem",
   [theme.breakpoints.down("md")]: {
     maxWidth: "600px",
   },
@@ -131,21 +136,23 @@ const CourseDetail = () => (
           ))}
         </Box>
       </Box>
+      <Box border={"1px solid"} mt={2}>
+        <Typography p={1} compontent={"p"}>
+          Our React.JS Course equips the learner for developing a single-page or
+          mobile applications and creates reusable components for web pages and
+          mobile applications. We have designed React.JS Course Syllabus by
+          industry experts as per the requirements of current trends. The
+          React.JS Course Curriculum contains basic elements like introduction,
+          JSX overview, Environmental setup, real-time applications, forms and
+          UI, Component Lifecycle, Event Handling, and Styles along with
+          advanced features such as router and navigations, Flux, Redux, and
+          Unit testing methods. Check out the detailed React.JS Course Content
+          below.
+        </Typography>
+      </Box>
+    </Container>
+    <Container maxWidth="xl">
       <Box py={2}>
-        <Box border={"1px solid"} mt={2}>
-          <Typography p={1} compontent={"p"}>
-            Our React.JS Course equips the learner for developing a single-page
-            or mobile applications and creates reusable components for web pages
-            and mobile applications. We have designed React.JS Course Syllabus
-            by industry experts as per the requirements of current trends. The
-            React.JS Course Curriculum contains basic elements like
-            introduction, JSX overview, Environmental setup, real-time
-            applications, forms and UI, Component Lifecycle, Event Handling, and
-            Styles along with advanced features such as router and navigations,
-            Flux, Redux, and Unit testing methods. Check out the detailed
-            React.JS Course Content below.
-          </Typography>
-        </Box>
         <Typography pt={4} variant="h5" compontent={"h5"}>
           React Js Course Content
         </Typography>
@@ -166,15 +173,51 @@ const CourseDetail = () => (
           <ExpandMore />
           Learn More
         </Button>
-        <Box border={"1px solid"} mt={2}>
-          <Typography component={"p"} p={1}>
-            Learn the best React.JS Course in Chennai at Softlogic to create and
-            manage view layers of web pages and mobile apps. Our trainers are
-            skilled and certified to provide comprehensive coaching with
-            hands-on exposure. Connect us at 86818 84318 for more information
-            about React.JS Training
-          </Typography>
-        </Box>
+        <Container maxWidth="xl">
+          <Grid mt={2} direction="row" container spacing={2}>
+            <Grid mt={-5} item xs={12} md={6} lg={3}>
+              <Box
+                boxShadow={"0 0 5px 2px #bcbcbc"}
+                borderTop={"3px solid #00695c"}
+                borderLeft={"5px solid #00695c"}
+                m={2}
+              >
+                <Paper>
+                  <Typography component={"p"} p={2}>
+                    Learn the best React.JS Course in Ethiopia to create and
+                    manage view layers of web pages and mobile apps. Our
+                    trainers are skilled and certified to provide comprehensive
+                    coaching with hands-on exposure. Connect us at +251 22545786
+                    for more information about React.JS Training
+                  </Typography>
+                </Paper>
+              </Box>
+            </Grid>
+            <Grid item xs={0} md={6} lg={9}>
+              <Typography variant="h5" compontent="h5">
+                You may also also like
+              </Typography>
+              <Box display="flex" flexWrap="wrap">
+                {courses.map(({ title, logo, about }, index) => (
+                  <Box m={1}>
+                    <Paper elevation={2} minWidth={300}>
+                      <ListItem button key={index + about}>
+                        <ListItemAvatar>
+                          <Avatar
+                            variant="rounded"
+                            alt="Course logo"
+                            src={logo}
+                          />
+                        </ListItemAvatar>
+                        <ListItemText primary={title} secondary={about} />
+                      </ListItem>
+                    </Paper>
+                  </Box>
+                ))}
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
     </Container>
   </Box>
