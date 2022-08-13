@@ -1,6 +1,5 @@
 import { Favorite, FavoriteBorder, Share, Title } from "@mui/icons-material";
 import {
-  Button,
   Card,
   CardActions,
   CardContent,
@@ -9,9 +8,9 @@ import {
   Checkbox,
   Icon,
   IconButton,
+  Link,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import RatingBar from "./RatingBar";
 
 const Post = ({ course }) => {
@@ -63,20 +62,24 @@ const Post = ({ course }) => {
         <IconButton aria-label="share">
           <Share />
         </IconButton>
-        <Link
-        to={`/courses/${course.id}`}
-          sx={{
-            border: ".5px solid #006ea1",
-            "&:hover": { backgroundColor: "#006ea1", color: "#fff" },
-            borderRadius: 8,
-            width: 100,
-            textDecoration:"none",
-          }}
-          variant="outlined"
-          size="small"
-        >
-          View
-        </Link>
+          <Link
+            sx={{
+              color:"#006ea1",
+              border: ".5px solid #006ea1",
+              "&:hover":{
+                backgroundColor:"#006ea1",
+                color:"#ffffff"
+              },
+              borderRadius: 8,
+              width: 100,
+              textDecoration: "none",
+              textAlign:"center",
+            }}
+            underline="none"
+            href={`/courses/${course.id}`}
+          >
+            View
+          </Link>
       </CardActions>
     </Card>
   );
