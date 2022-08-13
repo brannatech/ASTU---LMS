@@ -9,11 +9,14 @@ import {
 } from "@mui/icons-material";
 import {
   Avatar,
-  AvatarGroup,
   Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
   Grid,
   Icon,
-  List,
+  Link,
   ListItem,
   ListItemAvatar,
   ListItemIcon,
@@ -35,12 +38,8 @@ const HeaderContainer = styled(Box)(({ theme }) => ({
   paddingLeft: "2rem",
   [theme.breakpoints.down("md")]: {
     maxWidth: "600px",
+    paddingLeft: 0,
   },
-}));
-const SmallAvatar = styled(Avatar)(({ theme }) => ({
-  width: 22,
-  height: 22,
-  border: `2px solid ${theme.palette.background.paper}`,
 }));
 const data = [
   "Create dynamic web apps using the latest in web technology",
@@ -51,6 +50,7 @@ const data = [
   "Master the fundamentals concepts behind React and Redux",
   "Be the engineer who explains how Redux works to everyone else, because you know the fundamentals so well",
 ];
+
 const CourseDetail = () => (
   <Box
     sx={{
@@ -64,7 +64,7 @@ const CourseDetail = () => (
     <Box
       component={"div"}
       sx={{
-        padding: "2rem 6rem",
+        padding: { xs: "2rem 1rem", md: "2rem 6rem" },
         color: "#ffffff",
         backgroundColor: "#1C1D1F",
         width: "100%",
@@ -72,27 +72,26 @@ const CourseDetail = () => (
         flexWrap: "wrap",
       }}
     >
-      <HeaderContainer lineHeight={2} flexGrow={0.3}>
-        <Typography variant={"h5"} component={"h5"}>
+      <HeaderContainer flexGrow={0.3}>
+        <Typography variant={"h4"} component={"h4"}>
           React JS: The Complete Developer's Guide
         </Typography>
         <Typography component={"p"}>
-          Master Typescript by learning popular design patterns and building
+          Master React Js by learning popular design patterns and building
           complex projects. Includes Next Js, Typscript, and Express!
         </Typography>
       </HeaderContainer>
-      <HeaderContainer lineHeight={2} flexGrow={0.3}>
+      <HeaderContainer flexGrow={0.3}>
         <Typography>
           <Box display={"flex"}>
             <Icon sx={{ marginRight: 1 }} fontSize="small">
               <PeopleAlt />
             </Icon>
             <span>Created by &nbsp; </span>
-            <AvatarGroup total={3}>
-              <SmallAvatar alt="Animaw Bayi (PhD)" src="" />
-              <SmallAvatar alt="Gopi Krishna (PhD)" src="" />
-              <SmallAvatar alt="Galata Waqo(PhD)" src="" />
-            </AvatarGroup>
+
+            <Link fontWeight={700} color="skyBlue" underline="none">
+              Animaw Bayih (PhD)
+            </Link>
           </Box>
         </Typography>
         <Typography>
@@ -115,43 +114,99 @@ const CourseDetail = () => (
         </Typography>
         <RatingBar />
       </HeaderContainer>
-
-      <Box flexGrow={0.7} />
     </Box>
-    <Container maxWidth="lg">
-      <Box border={"1px solid"} mt={2}>
-        <Typography p={2} variant="h4" fontWeight={600}>
-          What you'll learn
-        </Typography>
-        <Box display={"flex"} flexDirection="row" flexWrap="wrap">
-          {data.map((item) => (
-            <Box maxWidth={"400px"}>
-              <ListItem desablepadding>
-                <ListItemIcon key={item}>
-                  <Check />
-                </ListItemIcon>
-                <ListItemText primary={item} />
-              </ListItem>
-            </Box>
-          ))}
+    <Grid spacing={3} mt={2} px={{ sm: 1, lg: 5 }} container direction={"row"}>
+      <Grid item sm={12} lg={9}>
+        <Box border={"1px solid #bfb9b9"}>
+          <Typography p={2} variant="h4" fontWeight={600}>
+            What you'll learn
+          </Typography>
+          <Box display={"flex"} flexDirection="row" flexWrap="wrap">
+            {data.map((item) => (
+              <Box maxWidth={"400px"}>
+                <ListItem desablepadding>
+                  <ListItemIcon key={item}>
+                    <Check />
+                  </ListItemIcon>
+                  <ListItemText primary={item} />
+                </ListItem>
+              </Box>
+            ))}
+          </Box>
         </Box>
-      </Box>
-      <Box border={"1px solid"} mt={2}>
-        <Typography p={1} compontent={"p"}>
-          Our React.JS Course equips the learner for developing a single-page or
-          mobile applications and creates reusable components for web pages and
-          mobile applications. We have designed React.JS Course Syllabus by
-          industry experts as per the requirements of current trends. The
-          React.JS Course Curriculum contains basic elements like introduction,
-          JSX overview, Environmental setup, real-time applications, forms and
-          UI, Component Lifecycle, Event Handling, and Styles along with
-          advanced features such as router and navigations, Flux, Redux, and
-          Unit testing methods. Check out the detailed React.JS Course Content
-          below.
-        </Typography>
-      </Box>
-    </Container>
-    <Container maxWidth="xl">
+        <Box p={{ xs: "1rem 1rem" }} border={"1px solid #bfb9b9"} mt={2}>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            p={1}
+            compontent={"p"}
+          >
+            This course covers everything you need to know to write high-­quality
+            React code. You'll learn about React components using the functional
+            method of writing them as well as the class method. You'll learn
+            about managing the state of your application using several different
+            methods, including with React Hooks and with the setState method.
+            You'll learn how to put components together to make complete and
+            dynamic user interfaces. You'll learn how to fetch data from an
+            external data source and use it in your application. And, you'll
+            learn how to store data in the user's web browser to improve the
+            performance and usability of your application. Speaking of
+            usability, you'll learn about best practices for making your
+            application work on mobile devices as well as on the desktop, and
+            you'll also learn how to make sure that your application will be
+            accessible.
+          </Typography>
+          <Typography 
+            variant="body2"
+            color="text.secondary"
+            p={1}
+            compontent={"p"}>
+          Because React takes advantage of many of the latest and
+            greatest improvements and enhancements to the underlying JavaScript
+            language, I'll be giving you JavaScript lessons throughout the book.
+            Some of the new JavaScript syntax can be a little confusing to those
+            of us who first learned the language in its early days, but I'll
+            provide plenty of simple and real-­world examples to explain each
+            new bit of syntax or shortcut.
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid item lg={3}>
+        <Card>
+          <CardMedia
+            component="img"
+            alt="green iguana"
+            height="240"
+            image="/images/courses/reactdev.jpeg"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              React Js Tutorial
+            </Typography>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                p={1}
+                compontent={"p"}
+              >
+                Our React.JS Course equips the learner for developing a
+                single-page or mobile applications and creates reusable
+                components for web pages and mobile applications.The React.JS Course Curriculum
+                contains basic elements like introduction, JSX overview,
+                Environmental setup, real-time applications, forms and UI,
+                Component Lifecycle, Event Handling, and Styles along with
+                advanced features such as router and navigations, Flux, Redux,
+                and Unit testing methods. Check out the detailed React.
+              </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Share</Button>
+            <Button size="large">Start Course</Button>
+          </CardActions>
+        </Card>
+      </Grid>
+    </Grid>
+    <Container maxWidth="lg">
       <Box py={2}>
         <Typography pt={4} variant="h5" compontent={"h5"}>
           React Js Course Content
@@ -173,52 +228,48 @@ const CourseDetail = () => (
           <ExpandMore />
           Learn More
         </Button>
-        <Container maxWidth="xl">
-          <Grid mt={2} direction="row" container spacing={2}>
-            <Grid mt={-5} item xs={12} md={6} lg={3}>
-              <Box
-                boxShadow={"0 0 5px 2px #bcbcbc"}
-                borderTop={"3px solid #00695c"}
-                borderLeft={"5px solid #00695c"}
-                m={2}
-              >
-                <Paper>
-                  <Typography component={"p"} p={2}>
-                    Learn the best React.JS Course in Ethiopia to create and
-                    manage view layers of web pages and mobile apps. Our
-                    trainers are skilled and certified to provide comprehensive
-                    coaching with hands-on exposure. Connect us at +251 22545786
-                    for more information about React.JS Training
-                  </Typography>
+      </Box>
+    </Container>
+    <Container maxWidth="xl">
+      <Grid mt={2} direction="row" container spacing={2}>
+        <Grid mt={-5} item xs={12} md={6} lg={3}>
+          <Box
+            boxShadow={"0 0 5px 2px #bcbcbc"}
+            borderTop={"3px solid #00695c"}
+            borderLeft={"5px solid #00695c"}
+            m={2}
+          >
+            <Paper>
+              <Typography component={"p"} p={2}>
+                Learn the best React.JS Course in Ethiopia to create and manage
+                view layers of web pages and mobile apps. Our trainers are
+                skilled and certified to provide comprehensive coaching with
+                hands-on exposure. Connect us at +251 22545786 for more
+                information about React.JS Training
+              </Typography>
+            </Paper>
+          </Box>
+        </Grid>
+        <Grid mb={2} item xs={0} md={6} lg={9}>
+          <Typography variant="h5" compontent="h5">
+            You may also also like
+          </Typography>
+          <Box display="flex" flexWrap="wrap">
+            {courses.map(({ title, logo, about }, index) => (
+              <Box m={1}>
+                <Paper elevation={2} minWidth={300}>
+                  <ListItem button key={index + about}>
+                    <ListItemAvatar>
+                      <Avatar variant="rounded" alt="Course logo" src={logo} />
+                    </ListItemAvatar>
+                    <ListItemText primary={title} secondary={about} />
+                  </ListItem>
                 </Paper>
               </Box>
-            </Grid>
-            <Grid item xs={0} md={6} lg={9}>
-              <Typography variant="h5" compontent="h5">
-                You may also also like
-              </Typography>
-              <Box display="flex" flexWrap="wrap">
-                {courses.map(({ title, logo, about }, index) => (
-                  <Box m={1}>
-                    <Paper elevation={2} minWidth={300}>
-                      <ListItem button key={index + about}>
-                        <ListItemAvatar>
-                          <Avatar
-                            variant="rounded"
-                            alt="Course logo"
-                            src={logo}
-                          />
-                        </ListItemAvatar>
-                        <ListItemText primary={title} secondary={about} />
-                      </ListItem>
-                    </Paper>
-                  </Box>
-                ))}
-              </Box>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+            ))}
+          </Box>
+        </Grid>
+      </Grid>
     </Container>
   </Box>
 );
