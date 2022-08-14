@@ -21,7 +21,6 @@ const Post = ({ course }) => {
         borderRadius: "16px",
         transition: "all .4s",
         opacity: 0.8,
-        maxWidth: 330,
         "&:hover": {
           opacity: 1,
           outline: "#47ffe0 solid 1px",
