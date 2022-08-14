@@ -1,7 +1,5 @@
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from '@mui/material';
-import theme from "./theme";
 import LoginPage from "./pages/LoginPage";
 import Courses from "./pages/Courses";
 import School from "./pages/School";
@@ -12,7 +10,7 @@ import Footer from "./components/Footer";
 import CourseDetail from "./pages/CourseDetail";
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Router>
       <Navbar/>
         <Routes>
@@ -26,7 +24,7 @@ function App() {
         </Routes>
       </Router>
       <Footer/>
-    </ThemeProvider>
+    </>
   );
 }
 

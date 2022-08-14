@@ -7,7 +7,9 @@ const School = () => {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="xl">
-        <Box sx={{ bgcolor: "#cfe8fc", height: "100vh" }} />
+        <Box sx={{ bgcolor: "#cfe8fc" }}>
+          
+        </Box>
       </Container>
     </React.Fragment>
   );
