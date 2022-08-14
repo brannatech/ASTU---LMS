@@ -12,6 +12,7 @@ import { Badge, Link } from "@mui/material";
 import {
   MailOutline,
   NotificationsOutlined,
+  Person,
   SettingsOutlined,
 } from "@mui/icons-material";
 
@@ -76,6 +77,12 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
+        <MenuItem>
+          <ListItemIcon>
+            <Person fontSize="small" />
+          </ListItemIcon>
+          Hana Girma
+        </MenuItem>
         <MenuItem>
           <ListItemIcon>
             <Badge color="secondary" badgeContent={3}>
