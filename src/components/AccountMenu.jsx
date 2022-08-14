@@ -7,9 +7,13 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import { Link } from "@mui/material";
+import { Badge, Link } from "@mui/material";
+import {
+  MailOutline,
+  NotificationsOutlined,
+  SettingsOutlined,
+} from "@mui/icons-material";
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -33,7 +37,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar src="" />
+            <Avatar alt="Hana Girma" src="/images/useravatar.png" />
           </IconButton>
         </Tooltip>
       </Box>
@@ -73,15 +77,25 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem>
-          <Avatar /> Profile
+          <ListItemIcon>
+            <Badge color="secondary" badgeContent={3}>
+              <MailOutline fontSize="small" />
+            </Badge>
+          </ListItemIcon>
+          Messages
         </MenuItem>
         <MenuItem>
-          <Avatar /> My account
+          <ListItemIcon>
+            <Badge color="secondary" badgeContent={"9+"}>
+              <NotificationsOutlined fontSize="small" />
+            </Badge>
+          </ListItemIcon>
+          Notifications
         </MenuItem>
         <Divider />
         <MenuItem>
           <ListItemIcon>
-            <Settings fontSize="small" />
+            <SettingsOutlined fontSize="small" />
           </ListItemIcon>
           Settings
         </MenuItem>
@@ -89,7 +103,9 @@ export default function AccountMenu() {
           <ListItemIcon>
             <Logout color="error" fontSize="small" />
           </ListItemIcon>
-          <Link underline="none" color={"text.primary"} href="/login">Logout</Link>
+          <Link underline="none" color={"text.primary"} href="/login">
+            Logout
+          </Link>
         </MenuItem>
       </Menu>
     </>
