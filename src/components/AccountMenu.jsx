@@ -16,6 +16,11 @@ import {
   SettingsOutlined,
 } from "@mui/icons-material";
 
+import Modal from "@mui/material/Modal";
+import Messages from "./Messages";
+import { Typography } from "@mui/material";
+import { TouchApp } from "@mui/icons-material";
+
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -26,6 +31,9 @@ export default function AccountMenu() {
     setAnchorEl(null);
   };
 
+  const [openModal, setOpenModal] = React.useState(false);
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
   return (
     <>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
@@ -83,7 +91,7 @@ export default function AccountMenu() {
           </ListItemIcon>
           Hana Girma
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={handleOpenModal}>
           <ListItemIcon>
             <Badge color="secondary" badgeContent={3}>
               <MailOutline fontSize="small" />
@@ -115,6 +123,33 @@ export default function AccountMenu() {
           </Link>
         </MenuItem>
       </Menu>
+      <Modal
+        open={openModal}
+        onClose={handleCloseModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            width: 320,
+            height: "100%",
+            bgcolor: "background.paper",
+            border: "1px solid #000",
+            boxShadow: 5,
+          }}
+        >
+          <Box p={2} width={"100%"} bgcolor={"#d3e8ff"}>
+            <Typography variant="h6" color={"primary"}>
+              <TouchApp fontSize="small" color="info" />
+              Messages
+            </Typography>
+          </Box>
+          <Messages />
+        </Box>
+      </Modal>
     </>
   );
 }

@@ -7,16 +7,13 @@ import {
   AccordionDetails,
   AccordionSummary,
   Divider,
-  Icon,
   IconButton,
-  ListItem,
   ListItemButton,
   ListItemIcon,
   Typography,
 } from "@mui/material";
-import { ExpandMore, ListAlt, PlayCircleFilled, VideoFile } from "@mui/icons-material";
+import { ExpandMore, PlayCircleFilled } from "@mui/icons-material";
 import styled from "@emotion/styled";
-import { padding } from "@mui/system";
 
 const data = [
   {
@@ -149,16 +146,16 @@ const data = [
 const Span = styled("span")(({ them }) => ({
   padding: "0 1rem",
   color: "blueViolet",
-  fontSize:"14px",
+  fontSize: "14px",
 }));
 export default function ContentList() {
-  const sections = data.length +8;
+  const sections = data.length + 8;
   function totalLectures() {
     let sum = 0;
     data.forEach((element) => {
       sum += element.content.length;
     });
-    return sum+50;
+    return sum + 50;
   }
   return (
     <List component="nav" disablePadding>

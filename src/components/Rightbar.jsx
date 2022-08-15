@@ -1,20 +1,22 @@
 import {
-  Avatar,
+  // Avatar,
   Box,
-  Divider,
+  // Divider,
   ImageList,
   ImageListItem,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
+  // List,
+  // ListItem,
+  // ListItemAvatar,
+  // ListItemText,
   Typography,
 } from "@mui/material";
 import React from "react";
+import DatePicker from "./StaticDatePicker";
 
 const Rightbar = () => {
   return (
     <Box sx={{ padding: 2, position: "sticky" }}>
+      <DatePicker />
       <Typography variant="h6" fontWeight={100} mb={2}>
         Latest events
       </Typography>
@@ -29,7 +31,7 @@ const Rightbar = () => {
           <img src="../images/event3.jpg" alt="" />
         </ImageListItem>
       </ImageList>
-      <Typography variant="h6" fontWeight={100} mt={2}>
+      {/* <Typography variant="h6" fontWeight={100} mt={2}>
         Latest Conversations
       </Typography>
       <List
@@ -104,7 +106,7 @@ const Rightbar = () => {
             }
           />
         </ListItem>
-      </List>
+      </List> */}
     </Box>
   );
 };

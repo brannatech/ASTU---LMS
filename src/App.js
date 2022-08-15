@@ -8,13 +8,14 @@ import ContactUs from "./pages/ContactUs";
 import Navbar from './components/AppBarResponsive';
 import Footer from "./components/Footer";
 import CourseDetail from "./pages/CourseDetail";
+import React from "react";
 function App() {
   return (
-    <>
+    <React.Fragment>
       <Router>
       <Navbar/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/school" element={<School/>}/>
           <Route path="/courses" exact element={<Courses/>}/>
@@ -24,7 +25,7 @@ function App() {
         </Routes>
       </Router>
       <Footer/>
-    </>
+    </React.Fragment>
   );
 }
 
