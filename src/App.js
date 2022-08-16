@@ -9,22 +9,24 @@ import Navbar from './components/AppBarResponsive';
 import Footer from "./components/Footer";
 import CourseDetail from "./pages/CourseDetail";
 import React from "react";
+import Counter from "./components/counter/Counter";
 function App() {
   return (
     <React.Fragment>
       <Router>
-      <Navbar/>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Counter />} />
+          {/* <Route path="/" exact element={<Home />} /> */}
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/school" element={<School/>}/>
-          <Route path="/courses" exact element={<Courses/>}/>
-          <Route path="/about" element={<AboutPage/>}/>
-          <Route path="/contact" element={<ContactUs/>}/>
-          <Route path="/courses/:id" element={<CourseDetail/>}/>
+          <Route path="/school" element={<School />} />
+          <Route path="/courses" exact element={<Courses />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/courses/:id" element={<CourseDetail />} />
         </Routes>
       </Router>
-      <Footer/>
+      <Footer />
     </React.Fragment>
   );
 }
