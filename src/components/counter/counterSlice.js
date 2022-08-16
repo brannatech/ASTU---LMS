@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
     count: 0,
@@ -14,13 +14,25 @@ export const counterSlice = createSlice({
         decrement: (state) => { state.count -= 1 },
         incrementByAmount: (state, action) => { state.count += action.payload },
         reset: (state) => { state.count = 0 },
-        fetchPosts: (state) => {
-            return state.posts;
+        addPosts: {
+            reducer(state, action) {
+                state.posts.push(action.payload)
+            },
+            prepare(title, content) {
+                return {
+                    payload: {
+                        id: nanoid(),
+                        title,
+                        content,
+                    }
+                }
+            }
+
         }
     }
 })
 
 export const fetchPosts = (state) => state.counter.posts;
 
-export const { increment, decrement, incrementByAmount, reset } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount, reset, addPosts } = counterSlice.actions;
 export default counterSlice.reducer;

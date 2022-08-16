@@ -7,11 +7,12 @@ import {
   reset,
   fetchPosts,
 } from "./counterSlice";
+import PostForm from "./PostForm";
 const Counter = () => {
   const countval = useSelector((state) => state.counter.count);
   const dispatch = useDispatch();
   const resetAll = () => dispatch(reset());
-  const posts = useSelector(fetchPosts)
+  const posts = useSelector(fetchPosts);
   return (
     <>
       <div style={{ display: "flex", flexDirection: "column", padding: 30 }}>
@@ -22,6 +23,7 @@ const Counter = () => {
         <button onClick={resetAll}>Reset</button>
       </div>
       <div style={{ display: "flex", flexDirection: "column", padding: 30 }}>
+        <PostForm />
         {posts.map((post) => (
           <React.Fragment key={post.id}>
             <h1>{post.title}</h1>
