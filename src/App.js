@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Courses from "./pages/Courses";
 import School from "./pages/School";
@@ -9,23 +9,24 @@ import Navbar from './components/AppBarResponsive';
 import Footer from "./components/Footer";
 import CourseDetail from "./pages/CourseDetail";
 import React from "react";
-import Counter from "./components/counter/Counter";
+import ProtectedRoutes from "./app/ProtectedRoutes";
+import IndexPage from "./pages/IndexPage";
 function App() {
   return (
     <React.Fragment>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Counter />} />
-          {/* <Route path="/" exact element={<Home />} /> */}
-          <Route path="/login" element={<LoginPage />} />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<IndexPage/>} />
+        <Route path="/login" element={<LoginPage/>} />
+        <Route element={<ProtectedRoutes />} >
+          <Route path="/home" exact element={<Home />} />
           <Route path="/school" element={<School />} />
           <Route path="/courses" exact element={<Courses />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/courses/:id" element={<CourseDetail />} />
-        </Routes>
-      </Router>
+        </Route>
+      </Routes>
       <Footer />
     </React.Fragment>
   );

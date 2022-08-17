@@ -16,7 +16,9 @@ import DatePicker from "./StaticDatePicker";
 const Rightbar = () => {
   return (
     <Box sx={{ padding: 2, position: "sticky" }}>
-      <DatePicker />
+      <Box display={{ xs: "none", sm: "block" }}>
+        <DatePicker />
+      </Box>
       <Typography variant="h6" fontWeight={100} mb={2}>
         Latest events
       </Typography>

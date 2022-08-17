@@ -24,7 +24,7 @@ import {
 import { Book, Info, PermContactCalendar, School } from "@mui/icons-material";
 import AccountMenu from "./AccountMenu";
 import SchoolList from "./SchoolList";
-import NavLink from "./widgets/NavLink";
+import NavBarLink from "./widgets/NavLink";
 
 const drawerWidth = 240;
 const navItems = [
@@ -143,7 +143,7 @@ function DrawerAppBar(props) {
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { md: "none" } }}
+              sx={{ mr: 2, display: { xs: "inline-block", md: "none" } }}
             >
               <MenuIcon />
             </IconButton>
@@ -151,15 +151,17 @@ function DrawerAppBar(props) {
               component="div"
               sx={{ flexGrow: 0.3, display: { xs: "none", sm: "block" } }}
             />
-            <NavLink to={"/"}>
-              <Avatar
-                sx={{
-                  transform: "scale(1.25)",
-                  display: { xs: "none", sm: "none", md: "block" },
-                }}
-                src="/images/logo2.png"
-              />
-            </NavLink>
+            <Box >
+              <NavBarLink to={"/"}>
+                <Avatar
+                  sx={{
+                    transform: "scale(1.25)",
+                    cursor: "pointer",
+                  }}
+                  src="/images/logo2.png"
+                />
+              </NavBarLink>
+            </Box>
             <Box
               component="div"
               sx={{ flexGrow: 0.5, display: { xs: "none", sm: "block" } }}
@@ -168,21 +170,21 @@ function DrawerAppBar(props) {
               <SchoolList />
             </Box>
 
-            <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+            <Box sx={{ display: { xs: "none", md: "block" } }}>
               {navItems.map((item) =>
                 item[0] === "Schools" ? null : item[0] === "Courses" ? (
-                  <NavLink key={item} to={"/courses"}>
+                  <NavBarLink key={item} to={"/courses"}>
                     {item[0]}
-                  </NavLink>
+                  </NavBarLink>
                 ) : item[0] === "About" ? (
-                  <NavLink key={item} to={"/about"}>
+                  <NavBarLink key={item} to={"/about"}>
                     {item[0]}
-                  </NavLink>
+                  </NavBarLink>
                 ) : (
                   item[0] === "Contact" && (
-                    <NavLink key={item} to={"/contact"}>
+                    <NavBarLink key={item} to={"/contact"}>
                       {item[0]}
-                    </NavLink>
+                    </NavBarLink>
                   )
                 )
               )}

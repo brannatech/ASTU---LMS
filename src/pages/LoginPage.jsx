@@ -9,23 +9,36 @@ import {
   Paper,
   TextField,
   Typography,
-  Link
+  Link,
 } from "@mui/material";
+import { nanoid } from "@reduxjs/toolkit";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
+
+import { login } from "../app/authSlice";
 
 const LoginPage = () => {
   const paperStyle = { padding: 20, width: 280, margin: "60px auto" };
   const avatarStyle = { backgroundColor: "#1bbd7e" };
   const inputStyle = { margin: "5px auto" };
   const btnstyle = { margin: "8px 0" };
-
-  let navigator = useNavigate();
+  const [userId, setUserId] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const [remember, setRemember] = useState(true);
+  const handleIdChange = (e) => setUserId(e.target.value);
+  const handlePasswordChange = (e) => setUserPassword(e.target.value);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const validInput = (userId.length>9) && (userPassword.length>7);
   let handleSubmit = () => {
-    navigator("/");
+    dispatch(login({ id: nanoid(), username: userId, password: userPassword }));
+    navigate("/", { replace: true });
+    setUserId("");
+    setUserPassword("");
+    setRemember(false);
   };
-  const [remember, setRemember]=useState(true);
   return (
     <Box textAlign={"center"}>
       <Paper elevation={10} style={paperStyle}>
@@ -38,9 +51,11 @@ const LoginPage = () => {
         <TextField
           style={inputStyle}
           label="Username"
-          placeholder="Enter username"
+          placeholder="example: urg1254512"
           fullWidth
           required
+          value={userId}
+          onChange={handleIdChange}
         />
         <TextField
           style={inputStyle}
@@ -49,9 +64,18 @@ const LoginPage = () => {
           type="password"
           fullWidth
           required
+          value={userPassword}
+          onChange={handlePasswordChange}
         />
         <FormControlLabel
-          control={<Checkbox onChange={()=>setRemember(!remember)} name="checkedB" checked={remember} color="primary" />}
+          control={
+            <Checkbox
+              onChange={() => setRemember(!remember)}
+              name="checkedB"
+              checked={remember}
+              color="primary"
+            />
+          }
           label="Remember me"
         />
         <Button
@@ -61,11 +85,14 @@ const LoginPage = () => {
           variant="contained"
           style={btnstyle}
           fullWidth
+          disabled={!validInput}
         >
           Sign In
         </Button>
         <Typography>
-          <Link underline="none" href="/login">Forgot password ?</Link>
+          <Link underline="none" href="/login">
+            Forgot password ?
+          </Link>
         </Typography>
       </Paper>
     </Box>

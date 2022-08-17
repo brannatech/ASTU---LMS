@@ -8,7 +8,7 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
-import { Badge, Link } from "@mui/material";
+import { Badge, Button, Link } from "@mui/material";
 import {
   MailOutline,
   NotificationsOutlined,
@@ -20,6 +20,9 @@ import Modal from "@mui/material/Modal";
 import Messages from "./Messages";
 import { Typography } from "@mui/material";
 import { TouchApp } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+import { authProvider } from "../app/authSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -30,11 +33,12 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const navigate = useNavigate();
   const [openModal, setOpenModal] = React.useState(false);
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
-  return (
+  const auth = useSelector(authProvider);
+  return auth.token.username ? (
     <>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
         <Tooltip title="Account settings">
@@ -151,5 +155,22 @@ export default function AccountMenu() {
         </Box>
       </Modal>
     </>
+  ) : (
+    <Button
+      sx={{
+        marginLeft: 2,
+        borderRadius: 4,
+        transition: "all .2s",
+        "&:hover": {
+          backgroundColor: "#00695c",
+          color: "#ffffff",
+          transform: "ScaleX(1.25)",
+        },
+      }}
+      variant="outlined"
+      onClick={() => navigate("/login", { replace: true })}
+    >
+      Login
+    </Button>
   );
 }

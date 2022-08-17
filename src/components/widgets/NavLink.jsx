@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-const NavLink = styled(Link)(({ theme }) => ({
+const NavBarLink = styled(Link)(({ theme }) => ({
     textDecoration: "none",
     color: "#00695c",
     display: "inline-block",
@@ -16,4 +16,4 @@ const NavLink = styled(Link)(({ theme }) => ({
     },
   }));
 
-export default NavLink
+export default NavBarLink

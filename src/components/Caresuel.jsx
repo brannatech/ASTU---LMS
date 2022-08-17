@@ -20,7 +20,7 @@ function CarouselComponent() {
         data={data}
         time={5000}
         width="100%"
-        height="500px"
+        height="60vh"
         captionStyle={captionStyle}
         slideNumberStyle={slideNumberStyle}
         captionPosition="bottom"
@@ -39,13 +39,13 @@ function CarouselComponent() {
       />
       <Box
         sx={{
-          position:"absolute",
-          top:"8%",
-          height:"500px",
+          position: "absolute",
+          top: "8%",
+          height:"60vh",
           paddingTop: 5,
-          paddingLeft:{xs:0,sm:5},
+          paddingLeft: { xs: 0, sm: 5 },
           backgroundColor: "rgba(0,0,0,0.8)",
-          width: {xs:"100%",lg:"75%"},
+          width: { xs: "100%", lg: "75%" },
           // clipPath:"polygon(0 0, 40% 0, 50% 50%, 40% 100%, 0 100%)"
         }}
       >
@@ -54,7 +54,7 @@ function CarouselComponent() {
             fontWeight: 500,
             letterSpacing: 10,
             color: "#ffffff",
-            fontFamily:"Monoton",
+            fontFamily: "Monoton",
             padding: {
               xs: 2,
               md: 6,
@@ -68,9 +68,9 @@ function CarouselComponent() {
         <Typography
           sx={{
             color: "#29c8be",
-            fontFamily:"Uroob",
+            fontFamily: "Uroob",
             paddingLeft: {
-              xs:3,
+              xs: 3,
               md: 10,
             },
           }}
@@ -81,9 +81,9 @@ function CarouselComponent() {
         <Typography
           sx={{
             color: "#29c8be",
-            fontFamily:"Uroob",
+            fontFamily: "Uroob",
             paddingLeft: {
-              xs:3,
+              xs: 3,
               md: 10,
             },
           }}
@@ -92,7 +92,7 @@ function CarouselComponent() {
         >
           The New way of Learning
         </Typography>
-        <Box pl={{xs:3,md:10}} mt={5} width={"100%"}>
+        <Box pl={{ xs: 3, md: 10 }} mt={5} width={"100%"}>
           <Button
             sx={{
               color: "#00c8c8",
